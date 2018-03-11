@@ -1,0 +1,23 @@
+---
+
+
+  
+- hosts: jal 
+  tasks: 
+  - name: Install VIM
+    apt:
+      name: vim 
+      state: present
+    become: true 
+  - name: say hello
+    shell: echo Hola
+- hosts: qro
+  tasks:
+  - name: Unistall VIM
+    apt: 
+      name: vim 
+      state: absent
+    become: true
+  - name: say hello again
+    shell: echo Hello 
+
