@@ -1,0 +1,16 @@
+---
+
+
+  
+- hosts: all 
+  become: true
+  tasks: 
+  - name: Install Apache2
+    apt: name=apache2 state=present update_cache=true
+    notify:
+      - "Restarting WEB SERVER"
+  handlers:
+    - name: Restart Server
+      service: name=apache2 state=restarted
+  
+
